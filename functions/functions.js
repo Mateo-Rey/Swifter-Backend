@@ -44,7 +44,7 @@ const updatePost = (req, res) => {
         .catch((err) => handleError(err, res))
 }
 
-export const functions = {
+export const routes = {
     getPosts,
     addPost,
     deletePost,
