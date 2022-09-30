@@ -39,8 +39,8 @@ const deletePost = (req, res) => {
 const updatePost = (req, res) => {
     const docRef = req.params.docId
     const postUpdate = req.body
-    db.collection('posts').doc(docRef).update(postUpdate)
-        .then((doc) => res.status(200).send(`Successfully updated doc: ${doc.id}`))
+    db.collection('posts').doc(docRef).set(postUpdate, {merge: true})
+        .then(res.status(200).send(`Successfully updated doc: ${docRef}`))
         .catch((err) => handleError(err, res))
 }
 
